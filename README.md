@@ -36,7 +36,7 @@ If you downloaded the workflow with a *.alfredworkflow* extension, you must chan
 Now, copy the file config.temp.json and rename it to *config.json*. Fill in your username and password for CloudApp. Your username is probably your e-mail address.
 The attribute ‘copy_to_clipboard’ defines whether or not the URL should be copied to your clipboard when a file has been uploaded or a bookmark has been created. You can disable this, if you don’t want that behaviour.
 
-Now, you’re almost done. Select all the files in the directory, right click them and choose “Create archive”. Change the extension of the newly created archive from .zip to .alfredworkflow. It is important that you do not archive the folder but only its contents.
+Now you’re almost done. Select all the files in the directory, right click them and choose “Create archive”. Change the extension of the newly created archive from .zip to .alfredworkflow. It is important that you do not archive the folder but only its contents.
 
 Double click the file you just created and you’re done :-)
 
