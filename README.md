@@ -21,10 +21,12 @@ Commands
 - And of course, files can be uploaded to CloudApp from the file actions.
 Installation
 
-The workflow is written in Python and uses pycloudapp by Luis Nell. Because I have modified this wrapper a bit to get private file uploads working, this is bundled in the workflow. You do however need to install poster which the wrapper uses. This is easily done using the *easy_install* command. If you don’t have *easy_install* installed (you probably do if you ever write Python scripts :-)), you can grab it here and follow the installation instructions.
+The workflow is written in Python and uses pycloudapp by Luis Nell. Because I have modified this wrapper a bit to get private file uploads working, this is bundled in the workflow. You do however need to install `poster` which the wrapper uses. This is easily done using the *easy_install* command. If you don’t have *easy_install* installed (you probably do if you ever write Python scripts :-)), you can grab it here and follow the installation instructions.
 
 Fire up a terminal and write:
+	
 	easy_install poster
+
 You’ll probably need to use sudo.
 
 Now you’re ready to configure the workflow.

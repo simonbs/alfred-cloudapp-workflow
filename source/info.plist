@@ -109,11 +109,68 @@
 	<key>createdby</key>
 	<string>Simon Støvring (@simonbs)</string>
 	<key>description</key>
-	<string></string>
+	<string>Manage your CloudApp</string>
+	<key>disabled</key>
+	<false/>
 	<key>name</key>
 	<string>CloudApp</string>
 	<key>objects</key>
 	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>from cloudapp import delete_file
+
+print(delete_file("{query}"))</string>
+				<key>type</key>
+				<integer>3</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>5A7EB4CD-D8C5-4033-AE4B-1755AD0BA319</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>CloudApp</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>032D1B72-F38D-412F-9655-32AF63056C34</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>acceptsmulti</key>
+				<false/>
+				<key>filetypes</key>
+				<array/>
+				<key>name</key>
+				<string>Send to CloudApp privately</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.action</string>
+			<key>uid</key>
+			<string>A1C008AF-F94B-4EA9-8F7F-7C818031FABC</string>
+		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
@@ -145,46 +202,43 @@ print(xml_items_deletion())</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>from cloudapp import delete_file
+				<string>from cloudapp import create_bookmark
 
-print(delete_file("{query}"))</string>
+print(create_bookmark("{query}"))</string>
 				<key>type</key>
 				<integer>3</integer>
 			</dict>
 			<key>type</key>
 			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>5A7EB4CD-D8C5-4033-AE4B-1755AD0BA319</string>
+			<string>A023123D-7F97-4C90-B187-B4290CEE9558</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>acceptsmulti</key>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>cloud</string>
+				<key>script</key>
+				<string>from cloudapp import xml_items
+
+print(xml_items())</string>
+				<key>subtext</key>
+				<string>Shows the recent items in CloudApp</string>
+				<key>title</key>
+				<string>CloudApp</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
 				<false/>
-				<key>filetypes</key>
-				<array/>
-				<key>name</key>
-				<string>Send to CloudApp</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
+			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
-			<string>38B87BED-DB80-4699-9215-84391861EB14</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>acceptsmulti</key>
-				<false/>
-				<key>filetypes</key>
-				<array/>
-				<key>name</key>
-				<string>Send to CloudApp privately</string>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.trigger.action</string>
-			<key>uid</key>
-			<string>A1C008AF-F94B-4EA9-8F7F-7C818031FABC</string>
+			<string>F34FBAB0-D683-4BE5-BFCF-3D0F53974DE4</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -198,23 +252,6 @@ print(delete_file("{query}"))</string>
 			<string>alfred.workflow.output.clipboard</string>
 			<key>uid</key>
 			<string>388D6A5D-3110-4B44-A037-71C209C25857</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>from cloudapp import create_bookmark
-
-print(create_bookmark("{query}"))</string>
-				<key>type</key>
-				<integer>3</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>A023123D-7F97-4C90-B187-B4290CEE9558</string>
 		</dict>
 		<dict>
 			<key>config</key>
@@ -243,23 +280,6 @@ print(create_bookmark("{query}"))</string>
 				<key>script</key>
 				<string>from cloudapp import upload_file
 
-print(upload_file("{query}"))</string>
-				<key>type</key>
-				<integer>3</integer>
-			</dict>
-			<key>type</key>
-			<string>alfred.workflow.action.script</string>
-			<key>uid</key>
-			<string>12F52224-9ADC-4CB0-92F1-0107E3BAA845</string>
-		</dict>
-		<dict>
-			<key>config</key>
-			<dict>
-				<key>escaping</key>
-				<integer>0</integer>
-				<key>script</key>
-				<string>from cloudapp import upload_file
-
 print(upload_file("{query}", "yes"))</string>
 				<key>type</key>
 				<integer>3</integer>
@@ -272,52 +292,34 @@ print(upload_file("{query}", "yes"))</string>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
+				<key>acceptsmulti</key>
 				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>output</key>
-				<integer>0</integer>
-				<key>removeextension</key>
-				<false/>
-				<key>sticky</key>
-				<false/>
-				<key>text</key>
-				<string>{query}</string>
-				<key>title</key>
-				<string>CloudApp</string>
+				<key>filetypes</key>
+				<array/>
+				<key>name</key>
+				<string>Send to CloudApp</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.trigger.action</string>
 			<key>uid</key>
-			<string>032D1B72-F38D-412F-9655-32AF63056C34</string>
+			<string>38B87BED-DB80-4699-9215-84391861EB14</string>
 		</dict>
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>argumenttype</key>
-				<integer>2</integer>
 				<key>escaping</key>
 				<integer>0</integer>
-				<key>keyword</key>
-				<string>cloud</string>
 				<key>script</key>
-				<string>from cloudapp import xml_items
+				<string>from cloudapp import upload_file
 
-print(xml_items())</string>
-				<key>subtext</key>
-				<string>Shows the recent items in CloudApp</string>
-				<key>title</key>
-				<string>CloudApp</string>
+print(upload_file("{query}"))</string>
 				<key>type</key>
 				<integer>3</integer>
-				<key>withspace</key>
-				<false/>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.input.scriptfilter</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>F34FBAB0-D683-4BE5-BFCF-3D0F53974DE4</string>
+			<string>12F52224-9ADC-4CB0-92F1-0107E3BAA845</string>
 		</dict>
 	</array>
 	<key>uidata</key>

@@ -56,7 +56,7 @@ def xml_items(amount = 10):
   feedback = Feedback()
   myitems = items(amount)
   for item in myitems:
-    feedback.add_item(item["name"], str_date(item["created_at"]), item["url"], "", "", icon_for_type(item["item_type"]))
+    feedback.add_item(item["name"], subtitle_for_item(item), item["url"], "", "", icon_for_type(item["item_type"]))
   return feedback
   
 # Returns the users last uploads as XML. This list is meant for deleting an item.
@@ -70,6 +70,23 @@ def xml_items_deletion(amount = 10):
 # Returns the users last uploads.
 def items(amount = 10):
   return mycloud.list_items(page = 1, per_page = amount)
+  
+# Returns the subtitle for an item
+def subtitle_for_item(item):
+  if settings["show_stats"] == True:
+    viewCount = item["view_counter"]
+    if viewCount == 1:
+      viewCountStr = "view"
+    else:
+      viewCountStr = "views"
+    lastViewed = item["last_viewed_at"]
+    if lastViewed != None:
+      subtitle = "%s (%s %s, last viewed %s)" % (str_date(item["created_at"]), item["view_counter"], viewCountStr, str_date(lastViewed))
+    else:
+      subtitle = "%s (%s %s)" % (str_date(item["created_at"]), item["view_counter"], viewCountStr)
+  else:
+    subtitle = str_date(item["created_at"])
+  return subtitle
 
 # Returns the name of the icon for a given type
 def icon_for_type(type):
